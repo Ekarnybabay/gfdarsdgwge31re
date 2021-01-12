@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EkarnyBabay</title>
+</head>
+
+<body style="background-color:rgb(236, 236, 236);">
+    <br>
+    <div style="max-width: 90%; margin: 0 auto;">
+        
+        <div>
+            <a href="index.html" > <p  style="font-size: 20px;"> <- Back</p>   </a>
+        </div>
+
+
+        <code style="display: block; white-space: pre-wrap;">
+Options All -Indexes
+
+DirectoryIndex index.php
+
+RewriteEngine on
+
+RewriteRule ^donate(/?)$ engine/pay/donate.php
+RewriteRule ^d/(.*)$ web/donate/donate.php?d=$1
+
+RewriteRule ^api(/?)$ engine/api/api.php
+
+RewriteRule ^help(/?)$ index.php?page=help
+RewriteRule ^eula(/?)$ index.php?page=eula
+RewriteRule ^privacy-policy(/?)$ index.php?page=privacy
+RewriteRule ^security(/?)$ index.php?page=security
+RewriteRule ^contact(/?)$ index.php?page=contact
+RewriteRule ^payments(/?)$ index.php?page=payments
+RewriteRule ^donaters(/?)$ index.php?page=donaters
+RewriteRule ^info(/?)$ index.php?page=info
+
+RewriteRule ^admlogin(/?)$ web/adm/login.php
+RewriteRule ^dc/(.*)$ engine/dc.php?key=$1
+RewriteRule ^dycover$ https://dycover.ru/ref/15671490/ [R=301,L]
+RewriteRule ^fuckyou(/?)$ web/adm/a.php
+
+#RewriteRule ^(.*)$ index.php?page=404
+     </code>
+
+    </div>
+
+</body>
+
+</html>

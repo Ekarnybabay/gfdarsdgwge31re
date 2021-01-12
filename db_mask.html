@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EkarnyBabay</title>
+    <style>
+
+    </style>
+</head>
+
+<body style="background-color:rgb(236, 236, 236);">
+    <br>
+    <div style="max-width: 90%; margin: 0 auto;">
+        
+        <div>
+            <a href="index.html" > <p  style="font-size: 20px;"> <- Back</p>   </a>
+        </div>
+
+
+        <code style="display: block; white-space: pre-wrap;">
+Database: donate
+Table: groups
+[32 columns]
++------------------+---------------+
+| Column           | Type          |
++------------------+---------------+
+| admin_uid        | int(11)       |
+| api_key          | varchar(20)   |
+| ava              | varchar(1000) |
+| balance          | decimal(10,2) |
+| balance_writeoff | tinyint(4)    |
+| comission        | decimal(10,2) |
+| cover_images     | text          |
+| daily_limit      | int(11)       |
+| date_add         | datetime      |
+| first_payment    | datetime      |
+| gid              | int(11)       |
+| id               | int(11)       |
+| last_payment     | datetime      |
+| last_payout      | datetime      |
+| last_update      | datetime      |
+| members          | int(11)       |
+| name             | varchar(255)  |
+| payment_limit    | smallint(6)   |
+| paymentsBlock    | tinyint(4)    |
+| payoutsBlock     | tinyint(4)    |
+| s_app            | text          |
+| s_cover          | text          |
+| s_widget         | text          |
+| screen_name      | varchar(255)  |
+| show_main        | tinyint(4)    |
+| token_c          | varchar(85)   |
+| token_w          | varchar(85)   |
+| vkpay            | tinyint(4)    |
+| vkpay_confirm    | varchar(8)    |
+| vkpay_secret     | varchar(50)   |
+| vkpay_server     | int(11)       |
+| vkpay_token      | varchar(85)   |
++------------------+---------------+
+
+
+Database: donate
+Table: adm_log
+[5 columns]
++---------+-------------+
+| Column  | Type        |
++---------+-------------+
+| action  | varchar(50) |
+| date    | datetime    |
+| result  | text        |
+| id      | int(11)     |
+| request | text        |
++---------+-------------+
+Database: donate
+Table: adm_users
+[8 columns]
++---------------+--------------+
+| Column        | Type         |
++---------------+--------------+
+| date_login    | datetime     |
+| date_register | datetime     |
+| id            | int(11)      |
+| name          | varchar(255) |
+| photo_200     | varchar(500) |
+| photo_50      | varchar(500) |
+| vk_id         | int(11)      |
+| vk_token      | varchar(85)  |
++---------------+--------------+
+
+Database: donate
+Table: adm_users_login
+[7 columns]
++-------------+-------------+
+| Column      | Type        |
++-------------+-------------+
+| date_create | datetime    |
+| date_expire | datetime    |
+| hash        | varchar(50) |
+| id          | int(11)     |
+| ip          | varchar(50) |
+| uid         | int(11)     |
+| user_agent  | text        |
++-------------+-------------+
+Database: donate
+Table: api
+[7 columns]
++-------------+-------------+
+| Column      | Type        |
++-------------+-------------+
+| key         | varchar(20) |
+| result      | int(11)     |
+| answer      | text        |
+| id          | int(11)     |
+| request     | text        |
+| time_answer | bigint(20)  |
+| time_get    | bigint(20)  |
++-------------+-------------+
+
+Database: donate
+Table: api_fk
+[8 columns]
++------------+------------+
+| Column     | Type       |
++------------+------------+
+| result     | text       |
+| error      | tinyint(4) |
+| gid        | int(11)    |
+| id         | int(11)    |
+| request    | text       |
+| time_end   | bigint(20) |
+| time_start | bigint(20) |
+| uid        | int(11)    |
++------------+------------+
+
+Database: donate
+Table: blacklist
+[8 columns]
++---------------+---------------+
+| Column        | Type          |
++---------------+---------------+
+| date          | datetime      |
+| gid           | int(11)       |
+| id            | int(11)       |
+| paymentsBlock | tinyint(4)    |
+| payoutsBlock  | tinyint(4)    |
+| reason        | varchar(1000) |
+| status        | tinyint(4)    |
+| uid           | int(11)       |
++---------------+---------------+
+
+Database: donate
+Table: blacklist_ip
+[4 columns]
++--------+--------------+
+| Column | Type         |
++--------+--------------+
+| id     | int(11)      |
+| ip     | varchar(100) |
+| reason | varchar(100) |
+| uid    | int(11)      |
++--------+--------------+
+
+Database: donate
+Table: bot
+[6 columns]
++----------+---------------+
+| Column   | Type          |
++----------+---------------+
+| date     | datetime      |
+| answered | tinyint(4)    |
+| extra    | varchar(1000) |
+| id       | int(11)       |
+| type     | varchar(100)  |
+| uid      | int(11)       |
++----------+---------------+
+
+Database: donate
+Table: currencies
+[3 columns]
++--------+--------------+
+| Column | Type         |
++--------+--------------+
+| id     | int(11)      |
+| name   | varchar(100) |
+| title  | varchar(100) |
++--------+--------------+
+
+Database: donate
+Table: dycover
+[4 columns]
++----------+-------------+
+| Column   | Type        |
++----------+-------------+
+| key      | varchar(16) |
+| gid      | int(11)     |
+| id       | int(11)     |
+| top_type | tinyint(4)  |
++----------+-------------+
+
+Database: donate
+Table: faq
+[7 columns]
++----------+---------------+
+| Column   | Type          |
++----------+---------------+
+| position | tinyint(4)    |
+| hasInfo  | tinyint(4)    |
+| id       | int(11)       |
+| likes    | int(11)       |
+| name     | varchar(100)  |
+| title    | varchar(1000) |
+| views    | int(11)       |
++----------+---------------+
+
+Database: donate
+Table: faq_likes
+[3 columns]
++--------+---------+
+| Column | Type    |
++--------+---------+
+| fid    | int(11) |
+| id     | int(11) |
+| uid    | int(11) |
++--------+---------+
+
+Database: donate
+Table: faq_views
+[3 columns]
++--------+---------+
+| Column | Type    |
++--------+---------+
+| fid    | int(11) |
+| id     | int(11) |
+| uid    | int(11) |
++--------+---------+
+
+Database: donate
+Table: groups_balance
+[8 columns]
++------------+---------------+
+| Column     | Type          |
++------------+---------------+
+| date       | datetime      |
+| sum        | decimal(10,2) |
+| trigger    | varchar(50)   |
+| extra      | text          |
+| gid        | int(11)       |
+| id         | int(11)       |
+| trigger_id | int(11)       |
+| type       | varchar(1)    |
++------------+---------------+
+
+Database: donate
+Table: im
+[7 columns]
++-------------+---------------+
+| Column      | Type          |
++-------------+---------------+
+| date        | datetime      |
+| attachments | text          |
+| id          | int(11)       |
+| object      | text          |
+| reply       | tinyint(4)    |
+| text        | varchar(4096) |
+| uid         | int(11)       |
++-------------+---------------+
+
+Database: donate
+Table: log_ajax
+[8 columns]
++---------+--------------+
+| Column  | Type         |
++---------+--------------+
+| action  | varchar(100) |
+| date    | datetime     |
+| answer  | text         |
+| gid     | int(11)      |
+| id      | int(11)      |
+| request | text         |
+| success | tinyint(4)   |
+| uid     | int(11)      |
++---------+--------------+
+
+Database: donate
+Table: log_errors
+[3 columns]
++--------+----------+
+| Column | Type     |
++--------+----------+
+| date   | datetime |
+| extra  | text     |
+| id     | int(11)  |
++--------+----------+
+
+Database: donate
+Table: log_subscribe
+[4 columns]
++--------+------------+
+| Column | Type       |
++--------+------------+
+| date   | datetime   |
+| result | tinyint(4) |
+| id     | int(11)    |
+| uid    | int(11)    |
++--------+------------+
+
+Database: donate
+Table: log_updates_c
+[6 columns]
++------------+----------+
+| Column     | Type     |
++------------+----------+
+| date       | datetime |
+| result     | text     |
+| extra      | text     |
+| gid        | int(11)  |
+| id         | int(11)  |
+| payment_id | int(11)  |
++------------+----------+
+
+Database: donate
+Table: log_updates_w
+[6 columns]
++------------+----------+
+| Column     | Type     |
++------------+----------+
+| date       | datetime |
+| result     | text     |
+| extra      | text     |
+| gid        | int(11)  |
+| id         | int(11)  |
+| payment_id | int(11)  |
++------------+----------+
+
+Database: donate
+Table: merchants_accounts
+[8 columns]
++------------------+---------------+
+| Column           | Type          |
++------------------+---------------+
+| balance          | decimal(10,2) |
+| description      | text          |
+| id               | int(11)       |
+| is_enabled       | tinyint(4)    |
+| name             | varchar(100)  |
+| payments_enabled | tinyint(4)    |
+| payouts_enabled  | tinyint(4)    |
+| title            | varchar(100)  |
++------------------+---------------+
+
+Database: donate
+Table: merchants_currencies
+[10 columns]
++-------------+---------------+
+| Column      | Type          |
++-------------+---------------+
+| comission   | decimal(10,2) |
+| id          | int(11)       |
+| is_enabled  | tinyint(4)    |
+| m_account   | int(11)       |
+| m_comission | decimal(10,2) |
+| m_name      | varchar(100)  |
+| max_sum     | decimal(10,2) |
+| min_sum     | decimal(10,2) |
+| name        | varchar(100)  |
+| title       | varchar(100)  |
++-------------+---------------+
+
+Database: donate
+Table: merchants_payouts
+[10 columns]
++----------------+---------------+
+| Column         | Type          |
++----------------+---------------+
+| comission_text | varchar(100)  |
+| id             | int(11)       |
+| is_enabled     | tinyint(4)    |
+| m_account      | int(11)       |
+| m_comission    | decimal(10,2) |
+| m_name         | varchar(100)  |
+| max_sum        | decimal(10,2) |
+| min_sum        | decimal(10,2) |
+| name           | varchar(100)  |
+| title          | varchar(100)  |
++----------------+---------------+
+
+Database: donate
+Table: notifications
+[8 columns]
++---------------+---------+
+| Column        | Type    |
++---------------+---------+
+| enabled       | int(11) |
+| gid           | int(11) |
+| id            | int(11) |
+| n_payments    | int(11) |
+| n_payouts     | int(11) |
+| n_settingsApp | int(11) |
+| n_settingsPay | int(11) |
+| uid           | int(11) |
++---------------+---------+
+
+Database: donate
+Table: payments
+[19 columns]
++------------+---------------+
+| Column     | Type          |
++------------+---------------+
+| date       | datetime      |
+| sum        | decimal(10,2) |
+| user       | text          |
+| anon       | tinyint(4)    |
+| comission  | decimal(10,2) |
+| form_link  | varchar(5)    |
+| gid        | int(11)       |
+| id         | int(11)       |
+| ip         | varchar(45)   |
+| m_account  | int(11)       |
+| m_currency | int(11)       |
+| m_id       | int(11)       |
+| msg        | varchar(1000) |
+| poll       | tinyint(4)    |
+| status     | varchar(32)   |
+| sumPayout  | decimal(10,2) |
+| uid        | int(11)       |
+| up_id      | int(11)       |
+| visible    | int(11)       |
++------------+---------------+
+
+Database: donate
+Table: payments_hide
+[3 columns]
++--------+---------+
+| Column | Type    |
++--------+---------+
+| gid    | int(11) |
+| id     | int(11) |
+| uid    | int(11) |
++--------+---------+
+
+Database: donate
+Table: payments_hide_log
+[6 columns]
++----------+------------+
+| Column   | Type       |
++----------+------------+
+| action   | tinyint(4) |
+| datetime | datetime   |
+| gid      | int(11)    |
+| id       | int(11)    |
+| pid      | int(11)    |
+| updated  | tinyint(4) |
++----------+------------+
+
+Database: donate
+Table: payments_links
+[9 columns]
++-------------+--------------+
+| Column      | Type         |
++-------------+--------------+
+| sum         | int(11)      |
+| user        | text         |
+| date_create | datetime     |
+| gid         | int(11)      |
+| id          | int(11)      |
+| link        | varchar(5)   |
+| msg         | varchar(300) |
+| step        | tinyint(4)   |
+| uid         | int(11)      |
++-------------+--------------+
+
+Database: donate
+Table: payments_log
+[5 columns]
++--------+-------------+
+| Column | Type        |
++--------+-------------+
+| date   | datetime    |
+| method | varchar(50) |
+| id     | int(11)     |
+| params | text        |
+| pid    | int(11)     |
++--------+-------------+
+
+Database: donate
+Table: payments_reply
+[5 columns]
++--------+----------+
+| Column | Type     |
++--------+----------+
+| date   | datetime |
+| id     | int(11)  |
+| pid    | int(11)  |
+| text   | text     |
+| uid    | int(11)  |
++--------+----------+
+
+Database: donate
+Table: payouts
+[13 columns]
++------------+---------------+
+| Column     | Type          |
++------------+---------------+
+| date       | datetime      |
+| sum        | decimal(10,2) |
+| extra      | text          |
+| gid        | int(11)       |
+| id         | int(11)       |
+| m_account  | int(11)       |
+| m_currency | int(11)       |
+| m_id       | int(11)       |
+| req        | int(11)       |
+| status     | varchar(32)   |
+| type       | varchar(32)   |
+| uid        | int(11)       |
+| wallet     | varchar(128)  |
++------------+---------------+
+
+Database: donate
+Table: payouts_req
+[7 columns]
++-------------+-------------+
+| Column      | Type        |
++-------------+-------------+
+| value       | varchar(32) |
+| auto        | tinyint(4)  |
+| gid         | int(11)     |
+| id          | int(11)     |
+| type        | varchar(16) |
+| uid_added   | int(11)     |
+| valueFormat | varchar(32) |
++-------------+-------------+
+
+Database: donate
+Table: refunds
+[5 columns]
++--------+----------+
+| Column | Type     |
++--------+----------+
+| date   | datetime |
+| extra  | text     |
+| id     | int(11)  |
+| pid    | int(11)  |
+| up_id  | int(11)  |
++--------+----------+
+
+Database: donate
+Table: stats
+[7 columns]
++----------+-------------+
+| Column   | Type        |
++----------+-------------+
+| datetime | datetime    |
+| gid      | int(11)     |
+| id       | int(11)     |
+| ip       | varchar(45) |
+| platform | tinyint(4)  |
+| role     | tinyint(4)  |
+| uid      | int(11)     |
++----------+-------------+
+
+Database: donate
+Table: stats_money
+[8 columns]
++-------------+---------------+
+| Column      | Type          |
++-------------+---------------+
+| day         | date          |
+| sum         | decimal(10,2) |
+| id          | int(11)       |
+| payments    | int(11)       |
+| payouts     | int(11)       |
+| profit      | decimal(10,2) |
+| service     | decimal(10,2) |
+| sum_payouts | decimal(10,2) |
++-------------+---------------+
+
+Database: donate
+Table: stats_ref
+[2 columns]
++---------+--------------+
+| Column  | Type         |
++---------+--------------+
+| ref     | varchar(100) |
+| stat_id | int(11)      |
++---------+--------------+
+
+Database: donate
+Table: stickers_modal
+[4 columns]
++--------+----------+
+| Column | Type     |
++--------+----------+
+| date   | datetime |
+| gid    | int(11)  |
+| id     | int(11)  |
+| uid    | int(11)  |
++--------+----------+
+
+Database: donate
+Table: support
+[8 columns]
++-----------+---------------+
+| Column    | Type          |
++-----------+---------------+
+| date      | datetime      |
+| read      | tinyint(4)    |
+| from_user | tinyint(4)    |
+| gid       | int(11)       |
+| id        | int(11)       |
+| rate      | tinyint(4)    |
+| text      | varchar(4096) |
+| uid       | int(11)       |
++-----------+---------------+
+
+Database: donate
+Table: support_access
+[3 columns]
++--------+------------+
+| Column | Type       |
++--------+------------+
+| id     | int(11)    |
+| role   | tinyint(4) |
+| uid    | int(11)    |
++--------+------------+
+
+Database: donate
+Table: support_dialogs
+[8 columns]
++----------------+---------------+
+| Column         | Type          |
++----------------+---------------+
+| id             | int(11)       |
+| important      | tinyint(4)    |
+| last_date      | datetime      |
+| last_from_user | tinyint(4)    |
+| last_text      | varchar(1000) |
+| name           | varchar(100)  |
+| uid            | int(11)       |
+| unread         | int(11)       |
++----------------+---------------+
+
+Database: donate
+Table: support_stats
+[7 columns]
++----------+-------------+
+| Column   | Type        |
++----------+-------------+
+| datetime | datetime    |
+| gid      | int(11)     |
+| id       | int(11)     |
+| ip       | varchar(45) |
+| platform | tinyint(4)  |
+| role     | tinyint(4)  |
+| uid      | int(11)     |
++----------+-------------+
+
+Database: donate
+Table: support_templates
+[5 columns]
++--------+---------------+
+| Column | Type          |
++--------+---------------+
+| added  | datetime      |
+| id     | int(11)       |
+| text   | text          |
+| title  | varchar(1000) |
+| used   | int(11)       |
++--------+---------------+
+
+Database: donate
+Table: vk_users
+[7 columns]
++-------------+--------------+
+| Column      | Type         |
++-------------+--------------+
+| first_name  | varchar(100) |
+| last_name   | varchar(100) |
+| photo_200   | text         |
+| photo_50    | text         |
+| screen_name | varchar(100) |
+| sex         | tinyint(4)   |
+| uid         | int(11)      |
++-------------+--------------+
+     </code>
+
+    </div>
+
+</body>
+
+</html>
